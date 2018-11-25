@@ -7,11 +7,11 @@ let ul = document.getElementById("list"),
 //iife to load local storage
 (function load() {
     if (list.length !== 0) {
-        loaded();
+        loadStorage();
     }
 }) ();
 
-function loaded() {
+function loadStorage() {
     console.log("load");
     console.log(list);
     list.forEach(function(element) {
@@ -60,8 +60,21 @@ function removeMe(item) {
     } else {
         return false;
     }
-    parent = item.parentNode;
+    //local storage delete item (delete )
+    let parent = item.parentNode;
+    parent.id = "trash";
+    let array = ul.childNodes;
+    for (i = 0; i < array.length; i ++) {
+        if (array[i].id === "trash") {
+            let index = i;
+            list.splice(index,1);
+            localStorage.setItem("list-item", JSON.stringify(list));
+        }
+    }
+    //delete item
     parent.parentNode.removeChild(parent);
+
+
 }
 //remove all function
 removeAll.onclick = () => {
