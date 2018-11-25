@@ -1,35 +1,50 @@
-// declarations
-let add = document.getElementById("add");
-let container = document.getElementById("container");
-let container1 = document.getElementById("container1");
-let input = document.querySelector("input"); 
+//declarations
+let ul = document.getElementById("list"),
+    removeAll = document.getElementById("remove"),
+    add = document.getElementById("add");
 
-//functions
-//make new list item
-function li() {
-    let li = document.createElement("LI");
-    li.innerHTML = input.value;
-    let dButton = document.createElement("button");
-    let cButton = document.createElement("button");
-    container.appendChild(li);
-    li.appendChild(dButton);
-    li.appendChild(cButton);
-        dButton.addEventListener("click", () => {
-            li.parentNode.removeChild(li);
-        });
-        cButton.addEventListener("click", () => {
-            container1.appendChild(li)
-        });
+//click function
+    add.onclick = () => {
+        addLi(ul);
+    };
+
+//add list item function
+function addLi(targetUl) {
+    let inputText = document.getElementById("text").value,
+        li = document.createElement("li"),
+        textNode = document.createTextNode(inputText + " "),
+        removeButton = document.createElement("button");
+    document.getElementById("text").value = "";
+
+    if (inputText === "") {
+        alert("Invalid input. Please try again.")
+        return false;
+    } 
+    removeButton.className = "remove";
+    removeButton.innerHTML = "DONE!";
+    removeButton.setAttribute("onclick", "removeMe(this);");
+    li.appendChild(textNode);
+    li.appendChild(removeButton);
+    
+    targetUl.appendChild(li);
 }
 
-add.addEventListener("click", () => {
-        try {
-            if (input.value === "") throw "invalid input";
-                li();
-        }
-        catch(error) {
-            prompt(error);
-        }
-});
+//remove one list item function
+function removeMe(item) {
+    if (confirm("This will remove the task")) {
+    } else {
+        return false;
+    }
+    parent = item.parentNode;
+    parent.parentNode.removeChild(parent);
+}
+//remove all function
+removeAll.onclick = () => {
+    if (confirm("Are you sure? This will remove all tasks!")) {
+    } else {
+        return false;
+    }
+    ul.innerHTML = "";
+}
 
-//function to create li
+

@@ -4,27 +4,22 @@
     <meta charset="UTF-8">
     <title>To do</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
 </head>
 
-<body>
-    <div id="header">   
-        <input type="text" placeholder="create task...">
-        <button id="add"> </button>
-    </div>
-
-    <h3>to do</h3>
-        <div id="container">
-            
-        </div>
-
-    <h3>completed</h3>
-    <div id="container1">
-        
-    </div>
-
-
+<body>  
+    <div class="container">
+        <h1>To do:</h1>
+        <input type="text" placeholder="add task" id="text">
+        <button id="add">Add</button>
+        <button id="remove">Remove All</button>
+        <ul id="list"></ul>
+    </div>  
     <script src="script.js"></script>
+    <!-- <script src="node_modules/sweetalert2/dist
+    node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
 </body>
 </html>
