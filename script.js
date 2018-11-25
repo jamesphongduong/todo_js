@@ -1,8 +1,31 @@
 //declarations
 let ul = document.getElementById("list"),
     removeAll = document.getElementById("remove"),
-    add = document.getElementById("add");
+    add = document.getElementById("add"),
+    list = JSON.parse(localStorage.getItem("list-item")) || [];
 
+//iife to load local storage
+(function load() {
+    if (list.length !== 0) {
+        loaded();
+    }
+}) ();
+
+function loaded() {
+    console.log("load");
+    console.log(list);
+    list.forEach(function(element) {
+        li = document.createElement("li"),
+        textNode = document.createTextNode(element + " "),
+        removeButton = document.createElement("button");
+        removeButton.className = "remove";
+        removeButton.innerHTML = "DONE!";
+        removeButton.setAttribute("onclick", "removeMe(this);");
+        li.appendChild(textNode);
+        li.appendChild(removeButton);
+        ul.appendChild(li);
+    });
+};
 //click function
     add.onclick = () => {
         addLi(ul);
@@ -27,6 +50,8 @@ function addLi(targetUl) {
     li.appendChild(removeButton);
     
     targetUl.appendChild(li);
+    list.push(inputText);
+    localStorage.setItem("list-item", JSON.stringify(list));
 }
 
 //remove one list item function
@@ -45,6 +70,7 @@ removeAll.onclick = () => {
         return false;
     }
     ul.innerHTML = "";
+    localStorage.removeItem("list-item");
 }
 
 
