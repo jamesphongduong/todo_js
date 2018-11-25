@@ -1,0 +1,31 @@
+body {
+  background-image: url("resources/bg.jpg");
+  background-position: top center;
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 16px;
+  padding: 50px; }
+
+input, button {
+  font-size: 16px;
+  font-family: 'Maven Pro', sans-serif;
+  background: transparent;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 2mm; }
+
+input {
+  text-indent: 5px; }
+
+button {
+  background-color: grey; }
+
+li {
+  padding: 20px;
+  position: relative;
+  width: 30vw; }
+
+.remove {
+  position: absolute;
+  right: 0; }
+
+/*# sourceMappingURL=style.css.map */
