@@ -3,8 +3,8 @@ body {
     background-position: top center;
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;
-        // height: 100vh;
     padding: 50px;
+    width: 80vw;
 }
 input, button {
     font-size: 16px;
@@ -19,13 +19,23 @@ input {
 }
 button {
     background-color: grey;
+    margin: 5px;
 }
 li {
+    font-size: 16px;
     padding: 20px;
     position: relative;
-    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: circle;
 }
-.remove {
+// .remove {
+//     position: absolute;
+//     right: 0;
+// }
+.container {
+    // border: 1px solid black;
     position: absolute;
-    right: 0;
+    left: 50%;
+    transform: translate(-50%);
 }

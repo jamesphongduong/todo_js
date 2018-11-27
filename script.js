@@ -1,3 +1,15 @@
+// var script = document.createElement('script');
+
+// script.src = "sweetalert2.all.min.js";
+
+// document.getElementsByTagName('head')[0].appendChild(script); 
+
+// swal("test");
+
+// const sweetAlert2 = require("sweetAlert2");
+
+// swal("test");
+
 //declarations
 let ul = document.getElementById("list"),
     removeAll = document.getElementById("remove"),
@@ -16,7 +28,7 @@ function loadStorage() {
     console.log(list);
     list.forEach(function(element) {
         li = document.createElement("li"),
-        textNode = document.createTextNode(element + " "),
+        textNode = document.createTextNode("• " + element + " "),
         removeButton = document.createElement("button");
         removeButton.className = "remove";
         removeButton.innerHTML = "DONE!";
@@ -26,23 +38,22 @@ function loadStorage() {
         ul.appendChild(li);
     });
 };
-//click function
+//add list item function
     add.onclick = () => {
-        addLi(ul);
+        let inputText = document.getElementById("text").value;
+        if (inputText === "") {
+            alert("Invalid input. Please try again.")
+            return false;
+        } 
+        addLi(ul,inputText);
+        document.getElementById("text").value = "";
     };
 
-//add list item function
-function addLi(targetUl) {
-    let inputText = document.getElementById("text").value,
-        li = document.createElement("li"),
-        textNode = document.createTextNode(inputText + " "),
+function addLi(targetUl,inputText) {
+        let li = document.createElement("li"),
+        textNode = document.createTextNode("• " + inputText + " "),
         removeButton = document.createElement("button");
-    document.getElementById("text").value = "";
-
-    if (inputText === "") {
-        alert("Invalid input. Please try again.")
-        return false;
-    } 
+    
     removeButton.className = "remove";
     removeButton.innerHTML = "DONE!";
     removeButton.setAttribute("onclick", "removeMe(this);");
@@ -54,29 +65,31 @@ function addLi(targetUl) {
     localStorage.setItem("list-item", JSON.stringify(list));
 }
 
-//remove one list item function
+//remove item function
 function removeMe(item) {
-    if (confirm("This will remove the task")) {
+        if (confirm("This will remove the task")) {
     } else {
         return false;
     }
-    //local storage delete item (delete )
+    //local storage delete item (delete)
     let parent = item.parentNode;
-    parent.id = "trash";
-    let array = ul.childNodes;
-    for (i = 0; i < array.length; i ++) {
-        if (array[i].id === "trash") {
-            let index = i;
-            list.splice(index,1);
-            localStorage.setItem("list-item", JSON.stringify(list));
-        }
-    }
-    //delete item
+    //  parent.id = "trash";
+    let array = Array.from(ul.childNodes);
+    let index = array.indexOf(parent);
+    list.splice(index,1);
+    localStorage.setItem("list-item", JSON.stringify(list));
+    // for (i = 0; i < array.length; i ++) {
+    //     if (array[i].id === "trash") {
+    //         let index = i;
+    //         list.splice(index,1);
+    //         localStorage.setItem("list-item", JSON.stringify(list));
+    //     }
+    // }
+    //delete actual item
     parent.parentNode.removeChild(parent);
-
-
 }
-//remove all function
+
+//remove all items function
 removeAll.onclick = () => {
     if (confirm("Are you sure? This will remove all tasks!")) {
     } else {
@@ -85,5 +98,3 @@ removeAll.onclick = () => {
     ul.innerHTML = "";
     localStorage.removeItem("list-item");
 }
-
-
