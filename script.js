@@ -2,7 +2,7 @@
 let ul = document.getElementById("list"),
     removeAll = document.getElementById("remove"),
     add = document.getElementById("add"),
-    input = document.getElementsByClassName("input"),
+    input = document.getElementById("text"),
     list = JSON.parse(localStorage.getItem("list-item")) || [];
 
 //iife to load local storage
@@ -31,14 +31,27 @@ function loadStorage() {
 
 //add list item function
 add.onclick = () => {
-    let inputText = document.getElementById("text").value;
+    let inputText = input.value;
     if (inputText === "") {
         alert("Invalid input. Please try again.")
         return false;
     } 
     addLi(ul,inputText);
-    document.getElementById("text").value = "";
+    input.value = "";
 };
+
+//add list item function based off "enter stroke"
+input.addEventListener("keypress", (e) => {
+    let inputText = input.value,
+        key = e.which || e.keyCode;
+    if (key === 13 && inputText !== "") { // 13 is enter
+        addLi(ul, inputText);
+        input.value = "";
+    } else if (key === 13 && inputText === "") {
+    alert("Invalid input. Please try again.")
+    return false;
+    }
+});
 
 function addLi(targetUl,inputText) {
     let li = document.createElement("li"),
@@ -80,11 +93,4 @@ removeAll.onclick = () => {
     localStorage.removeItem("list-item");
 }
 
-//event listener for input box (enter stroke)
-input.keypress = (key) {
-    if (key === 13) {
-        console.log("working");
-    }
-}
 
-}
