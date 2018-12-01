@@ -1,15 +1,3 @@
-// var script = document.createElement('script');
-
-// script.src = "sweetalert2.all.min.js";
-
-// document.getElementsByTagName('head')[0].appendChild(script); 
-
-// swal("test");
-
-// const sweetAlert2 = require("sweetAlert2");
-
-// swal("test");
-
 //declarations
 let ul = document.getElementById("list"),
     removeAll = document.getElementById("remove"),
@@ -27,17 +15,20 @@ function loadStorage() {
     console.log("load");
     console.log(list);
     list.forEach(function(element) {
-        li = document.createElement("li"),
-        textNode = document.createTextNode("• " + element + " "),
-        removeButton = document.createElement("button");
+        let li = document.createElement("li"),
+            hr = document.createElement("hr");
+            textNode = document.createTextNode("• " + element + " "),
+            removeButton = document.createElement("button");
         removeButton.className = "remove";
         removeButton.innerHTML = "DONE!";
         removeButton.setAttribute("onclick", "removeMe(this);");
         li.appendChild(textNode);
         li.appendChild(removeButton);
         ul.appendChild(li);
+        ul.appendChild(hr);
     });
 };
+
 //add list item function
     add.onclick = () => {
         let inputText = document.getElementById("text").value;
@@ -50,16 +41,14 @@ function loadStorage() {
     };
 
 function addLi(targetUl,inputText) {
-        let li = document.createElement("li"),
+    let li = document.createElement("li"),
         textNode = document.createTextNode("• " + inputText + " "),
         removeButton = document.createElement("button");
-    
     removeButton.className = "remove";
     removeButton.innerHTML = "DONE!";
     removeButton.setAttribute("onclick", "removeMe(this);");
     li.appendChild(textNode);
     li.appendChild(removeButton);
-    
     targetUl.appendChild(li);
     list.push(inputText);
     localStorage.setItem("list-item", JSON.stringify(list));
@@ -72,20 +61,11 @@ function removeMe(item) {
         return false;
     }
     //local storage delete item (delete)
-    let parent = item.parentNode;
-    //  parent.id = "trash";
-    let array = Array.from(ul.childNodes);
-    let index = array.indexOf(parent);
+    let parent = item.parentNode,
+        array = Array.from(ul.childNodes),
+        index = array.indexOf(parent);
     list.splice(index,1);
     localStorage.setItem("list-item", JSON.stringify(list));
-    // for (i = 0; i < array.length; i ++) {
-    //     if (array[i].id === "trash") {
-    //         let index = i;
-    //         list.splice(index,1);
-    //         localStorage.setItem("list-item", JSON.stringify(list));
-    //     }
-    // }
-    //delete actual item
     parent.parentNode.removeChild(parent);
 }
 
