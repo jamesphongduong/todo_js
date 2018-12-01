@@ -2,6 +2,7 @@
 let ul = document.getElementById("list"),
     removeAll = document.getElementById("remove"),
     add = document.getElementById("add"),
+    input = document.getElementsByClassName("input"),
     list = JSON.parse(localStorage.getItem("list-item")) || [];
 
 //iife to load local storage
@@ -29,15 +30,15 @@ function loadStorage() {
 };
 
 //add list item function
-    add.onclick = () => {
-        let inputText = document.getElementById("text").value;
-        if (inputText === "") {
-            alert("Invalid input. Please try again.")
-            return false;
-        } 
-        addLi(ul,inputText);
-        document.getElementById("text").value = "";
-    };
+add.onclick = () => {
+    let inputText = document.getElementById("text").value;
+    if (inputText === "") {
+        alert("Invalid input. Please try again.")
+        return false;
+    } 
+    addLi(ul,inputText);
+    document.getElementById("text").value = "";
+};
 
 function addLi(targetUl,inputText) {
     let li = document.createElement("li"),
@@ -77,4 +78,13 @@ removeAll.onclick = () => {
     }
     ul.innerHTML = "";
     localStorage.removeItem("list-item");
+}
+
+//event listener for input box (enter stroke)
+input.keypress = (key) {
+    if (key === 13) {
+        console.log("working");
+    }
+}
+
 }
