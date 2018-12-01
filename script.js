@@ -16,7 +16,6 @@ function loadStorage() {
     console.log(list);
     list.forEach(function(element) {
         let li = document.createElement("li"),
-            hr = document.createElement("hr");
             textNode = document.createTextNode("• " + element + " "),
             removeButton = document.createElement("button");
         removeButton.className = "remove";
@@ -24,8 +23,8 @@ function loadStorage() {
         removeButton.setAttribute("onclick", "removeMe(this);");
         li.appendChild(textNode);
         li.appendChild(removeButton);
+        li.className = "card";
         ul.appendChild(li);
-        ul.appendChild(hr);
     });
 };
 
@@ -49,6 +48,7 @@ function addLi(targetUl,inputText) {
     removeButton.setAttribute("onclick", "removeMe(this);");
     li.appendChild(textNode);
     li.appendChild(removeButton);
+    li.className = "card";
     targetUl.appendChild(li);
     list.push(inputText);
     localStorage.setItem("list-item", JSON.stringify(list));

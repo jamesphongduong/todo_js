@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>To do</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>  
     <div class="container">
-        <h1>To do:</h1>
-        <input type="text" placeholder="add task" id="text" autofocus=true>
-        <button id="add">Add</button>
-        <button id="remove">Remove All</button>
+        <div class="card header">
+            <h1 class='a'>To do:</h1>
+            <input type="text" placeholder="add task" id="text" autofocus=true class='b'>
+            <button id="add">Add</button>
+            <button id="remove">Remove All</button>
+        </div>
         <ul id="list"></ul>
     </div>  
     <script src="script.js"></script>
