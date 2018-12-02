@@ -15,7 +15,7 @@ Biggest Challenge: learning and understanding how to implement local storage.
 
 Favorite Part: Applying newly learnt JS concepts, building an app start to finish it and styling it! Basically all of it :P
 
-<img src="resources/mobile_view.png" alt="mobile view of app" width="400" height="600"/>
+<img src="resources/mobile_view.png" alt="mobile view of app" width="400" height="400"/>
 
 
 
