@@ -6,7 +6,7 @@ Wrote a simple to-do app to strengthen my JS skills.
 App is written in HTML, SASS/CSS & Vanilla JS.
 
 Concepts applied:
-* IIFE (Immediately Invokved Function Expression)
+* IIFE (Immediately Invoked Function Expression)
 * Local Storage 
 * Event Listeners
 * Interaction with DOM
