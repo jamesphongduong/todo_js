@@ -25,6 +25,10 @@ input, button {
 ::placeholder {
     color: $grey;
 }
+ img {
+     width: 20px;
+     height: 20px;
+ }
 ul {
     padding: 0;
     margin: 0;
@@ -47,15 +51,15 @@ li {
 }
 .header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 80vw;
-    text-align: center;
+    // text-align: center;
 }
 .a {
-    grid-column: span 2;
+    grid-column: span 4;
 }
 .b {
-    grid-column: span 2;
+    grid-column: span 4;
 }
 .container {
     box-sizing: border-box;

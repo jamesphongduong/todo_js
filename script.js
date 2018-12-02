@@ -32,7 +32,7 @@ function loadStorage() {
 //add list item function
 add.onclick = () => {
     let inputText = input.value;
-    if (inputText === "") {
+    if (inputText.trim() === "") {
         alert("Invalid input. Please try again.")
         return false;
     } 
@@ -44,7 +44,7 @@ add.onclick = () => {
 input.addEventListener("keypress", (e) => {
     let inputText = input.value,
         key = e.which || e.keyCode;
-    if (key === 13 && inputText !== "") { // 13 is enter
+    if (key === 13 && inputText.trim() !== "") { // 13 is enter
         addLi(ul, inputText);
         input.value = "";
     } else if (key === 13 && inputText === "") {
@@ -57,8 +57,9 @@ function addLi(targetUl,inputText) {
     let li = document.createElement("li"),
         textNode = document.createTextNode("• " + inputText + " "),
         removeButton = document.createElement("button");
-    removeButton.className = "remove";
-    removeButton.innerHTML = "DONE!";
+        icon = document.createElement("img");
+    icon.src = "resources/checked.svg";
+    removeButton.appendChild(icon);
     removeButton.setAttribute("onclick", "removeMe(this);");
     li.appendChild(textNode);
     li.appendChild(removeButton);
