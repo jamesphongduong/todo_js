@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>To do</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>  
     <div class="container">
-        <h1>To do:</h1>
-        <input type="text" placeholder="add task" id="text">
-        <button id="add">Add</button>
-        <button id="remove">Remove All</button>
+        <div class="card header">
+            <h1 class='a'>To do:</h1>
+            <input type="text" placeholder="add task" id="text" autofocus=true class='b input'>
+            <img src="" alt="">
+            <button id="add"> <img src='resources/add.png'></button>
+            <button id="remove"> <img src='resources/delete.svg'> </button>
+        </div>
         <ul id="list"></ul>
     </div>  
     <script src="script.js"></script>
-    <!-- <script src="node_modules/sweetalert2/dist
-    node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
 </body>
 </html>
