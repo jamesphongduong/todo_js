@@ -58,7 +58,7 @@ function addLi(targetUl,inputText) {
         textNode = document.createTextNode("• " + inputText + " "),
         removeButton = document.createElement("button");
         icon = document.createElement("img");
-    icon.src = "resources/done.svg";
+    icon.src = "../resources/checked.svg";
     icon.alt = "done icon"
     removeButton.appendChild(icon);
     removeButton.setAttribute("onclick", "removeMe(this);");
