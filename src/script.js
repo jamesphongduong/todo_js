@@ -13,14 +13,14 @@ let ul = document.getElementById("list"),
 }) ();
 
 function loadStorage() {
-    console.log("load");
-    console.log(list);
     list.forEach(function(element) {
         let li = document.createElement("li"),
             textNode = document.createTextNode("• " + element + " "),
-            removeButton = document.createElement("button");
-        removeButton.className = "remove";
-        removeButton.innerHTML = "DONE!";
+            removeButton = document.createElement("button"),
+            icon = document.createElement("img");
+        icon.src = "../resources/checked.svg";
+        icon.alt = "done icon"
+        removeButton.appendChild(icon);
         removeButton.setAttribute("onclick", "removeMe(this);");
         li.appendChild(textNode);
         li.appendChild(removeButton);
