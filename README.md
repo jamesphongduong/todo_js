@@ -3,7 +3,7 @@
 
 Wrote a simple to-do app to strengthen my JS skills.
 
-App is written in HTML, SASS/CSS & Vanilla JS.
+App is written in HTML, SASS/CSS & Vanilla Javascript.
 
 Concepts applied:
 * IIFE (Immediately Invoked Function Expression)
